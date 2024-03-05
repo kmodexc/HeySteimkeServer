@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package dev.kmode;
+
+service HeySteimkeServer {
+  rpc GetTodos (Authentication) returns (ItemResponse) {}
+}
+
+message Authentication {
+    int64 auth_code = 1;
+}
+
+message ItemResponse {
+    repeated Item items = 1;
+}
+message Item {
+    int64 id = 1;
+    string name = 2;
+}
